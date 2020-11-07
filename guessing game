@@ -1,0 +1,48 @@
+import java.util.*;
+
+public class guessingGame{
+    public static void main(String[] args){ // basic starting stuff
+        Scanner scn = new Scanner(System.in);
+        Random rnd = new Random();
+        
+        System.out.println("pick a number"); // pick a number
+        System.out.println("it has to be a positive integer"); // it doesn't work with negative on non-int numbers
+        System.out.println("do NOT press backspace"); // the nextInt() thing doesn't register backspaces
+        int max = scn.nextInt(); // pick a number
+        
+        int target = (int) (rnd.nextFloat() * (max - 1)) + 1; // number picked
+        
+        int guess = 0; // basic starting stuff
+        int count = 0;
+        
+        int failCondition = String.valueOf(max).length() * String.valueOf(max).length() + 2; // limited tries
+        
+        System.out.println("im thinking of a number 1 to " + max + ", inclusive");
+        
+        while(true){
+            System.out.print("guess a number, 1 to " + max + ": ");
+            guess = scn.nextInt(); // pick a number
+            
+            if(guess < target)
+                System.out.println("too low"); // try again
+            if(guess > target)
+                System.out.println("too high");
+                
+            if(guess == target)
+                break; // exit the loop
+            
+            count++;
+            if(count == failCondition) // you have failed
+                break;
+        }
+        
+        if(count == failCondition)
+            System.out.print("you took too long, the answer was " + target);
+        else if(count < 2)
+            System.out.print("nice"); //how did you do?
+        else if(count < 4)
+            System.out.print("could have been worse");
+        else
+            System.out.println("took you long enough");
+    }
+}
