@@ -15,7 +15,7 @@ for num in nums: # repeat for every entry in nums
     
     bar = 0
     while not done:
-        if num >= bar * barWidth and num < (bar * barWidth) + barWidth: # add the current number where is belongs on the graph
+        if num >= bar * barWidth and num < (bar * barWidth) + barWidth: # add the current number where it belongs on the graph
             bars[bar] += '*'
             done = True
         else:
