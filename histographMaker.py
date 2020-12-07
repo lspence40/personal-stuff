@@ -27,4 +27,4 @@ for i in range(len(bars)):
         skipping = False
     
     if not skipping:
-        print(str(i * barWidth) + '-' + str((i + 1) * barWidth - 1) + ':  \t' + str(bars[i])) # print all the bars after the first one that has anything in it
+        print(str(i * barWidth) + ':  \n\t' + str(bars[i])) # print all the bars
